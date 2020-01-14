@@ -1,0 +1,39 @@
+{
+	"name": "ingredient-math",
+	"version": "0.0.1",
+	"description": "Library for converting ingredients based on serving size changes",
+	"main": "dist/index.js",
+	"scripts": {
+		"test": "jest",
+		"build": "rm -rf dist/ && babel src --out-dir dist",
+		"format": "prettier --write \"src/**/*.js\"",
+		"prepublish": "yarn build"
+	},
+	"keywords": [
+		"ingredient",
+		"math",
+		"recipe"
+	],
+	"author": "Brian Bolnick",
+	"license": "MIT",
+	"dependencies": {
+		"fraction.js": "^4.0.12",
+		"recipe-ingredient-parser": "^1.5.6"
+	},
+	"devDependencies": {
+		 "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^9.0.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+		"jest": "^23.6.0",
+		"prettier": "^1.13.2"
+	},
+	"files": [
+		"dist/**/*"
+	]
+}
