@@ -26,11 +26,12 @@ const convertIngredients = (ingredients, servingFactor = 1) => {
   }, {});
 };
 
-export const convertIngredient = (ing, servingFactor) => {
-  const parsedIng = parse(ing.toLowerCase());
+export const convertIngredient = (ingString, servingFactor) => {
+  const parsedIng = getParsedIngredient(ingString);
   const { quantity, unit, ingredient } = parsedIng;
 
   const formattedQuantity = calculateQuantity(quantity, servingFactor);
+  const formattedUnit = maybePluralizeUnit(formattedQuantity, unit);
 
   return {
     quantity: formattedQuantity,
@@ -39,11 +40,38 @@ export const convertIngredient = (ing, servingFactor) => {
   };
 };
 
+export const getParsedIngredient = ingString => {
+  const parsedIng = parse(ingString.toLowerCase());
+  const { quantity, unit, ingredient } = parsedIng;
+  const parsedQuantity = parseInt(quantity);
+
+  var resultQuantity = parsedQuantity;
+
+  if (!quantity) resultQuantity = null;
+  if (!parsedQuantity) {
+    resultQuantity = quantity;
+  }
+
+  return {
+    quantity: resultQuantity,
+    unit,
+    ingredient,
+  };
+};
+
+const maybePluralizeUnit = (quantity, unit) => {
+  if (!quantity) return unit;
+  if (!quantity) return null;
+  return unit;
+  // add if to return + s when necessary
+};
+
 /**
  * Calculates the appropriate quantity size
  * based on the serving size
  */
 const calculateQuantity = (quantity, serving) => {
+  if (!quantity) return null;
   const newQuantity = parseInt(quantity) * serving;
 
   const newQuantityType = getQuantityType(newQuantity);
