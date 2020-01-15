@@ -1,5 +1,6 @@
 import { parse } from 'recipe-ingredient-parser';
 import Fraction from 'fraction.js';
+import pluralize from 'pluralize';
 
 /**
  * Maps an ingredient string to a parsed result
@@ -35,7 +36,7 @@ export const convertIngredient = (ingString, servingFactor) => {
 
   return {
     quantity: formattedQuantity,
-    unit,
+    unit: formattedUnit,
     ingredient,
   };
 };
@@ -61,9 +62,7 @@ export const getParsedIngredient = ingString => {
 
 const maybePluralizeUnit = (quantity, unit) => {
   if (!quantity) return unit;
-  if (!quantity) return null;
-  return unit;
-  // add if to return + s when necessary
+  return pluralize(unit, parseInt(quantity));
 };
 
 /**

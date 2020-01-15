@@ -60,18 +60,19 @@ describe('convertIngredient', () => {
     expect(result.ingredient).toEqual('salt and pepper to taste');
   });
 
-  //it('converts whole numbers properly', () => {
-  //const ing = '2 cups of whole milk';
-  //const result = convertIngredient(ing, 4);
-  //expect(result.quantity).toEqual(8);
-  //expect(result.unit).toEqual('cups');
-  //expect(result.ingredient).toEqual('whole milk');
-  //});
+  it('converts whole numbers properly', () => {
+    const ing = '2 cups of whole milk';
+    const result = convertIngredient(ing, 2);
+    expect(result.quantity).toEqual(4);
+    expect(result.unit).toEqual('cups');
+    expect(result.ingredient).toEqual('of whole milk');
+  });
+
+  it('pluralizes units when necessary', () => {});
 
   it('converts fractions properly', () => {});
   it('simplifies fractions', () => {});
   it('converts fractions mixed numbers when necessary', () => {});
-  it('pluralizes units when necessary', () => {});
   it('properly converts teaspoons to tablespoons', () => {});
   it('properly converts tablespoons to cups', () => {});
   it('properly converts tablespoons to cups', () => {});
