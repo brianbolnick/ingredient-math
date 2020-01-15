@@ -4,7 +4,7 @@ This library is for converting recipe ingredients based on a serving size factor
 
 ## Installation
 ```js
-	yarn add ingredient-math
+yarn add ingredient-math
 ```
 
 ### Example
@@ -21,8 +21,8 @@ It will also automatically calculate and convert units:
 const ingredient = "1 teaspoon sugar"
 const servingsFactor(3)
 
-> IngredientMath.convertIngredient(ingredient, servingsFactor)
-# "1 tablespoon sugar"
+> convertIngredient(ingredient, servingsFactor)
+// "1 tablespoon sugar"
 ```
 
 
