@@ -9,15 +9,19 @@ yarn add ingredient-math
 
 ### Example
 ```js
+import { convertIngredient } from 'ingredient-math';
+
 const ingredient = "1 teaspoon sugar"
 const servingsFactor(2)
 
-> IngredientMath.convertIngredient(ingredient, servingsFactor)
+> convertIngredient(ingredient, servingsFactor)
 // "2 teaspoons sugar"
 ```
 
 It will also automatically calculate and convert units: 
 ```js
+import { convertIngredient } from 'ingredient-math';
+
 const ingredient = "1 teaspoon sugar"
 const servingsFactor(3)
 
