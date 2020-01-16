@@ -15,7 +15,11 @@ const ingredient = "1 teaspoon sugar"
 const servingsFactor(2)
 
 > convertIngredient(ingredient, servingsFactor)
-// "2 teaspoons sugar"
+{
+	quantity: "2",
+	unit: "teaspoons"
+	ingredient: "sugar"
+}
 ```
 
 It will also automatically calculate and convert units: 
@@ -26,7 +30,12 @@ const ingredient = "1 teaspoon sugar"
 const servingsFactor(3)
 
 > convertIngredient(ingredient, servingsFactor)
-// "1 tablespoon sugar"
+
+{
+	quantity: "3",
+	unit: "tablespoons"
+	ingredient: "sugar"
+}
 ```
 
 

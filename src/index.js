@@ -20,10 +20,8 @@ import pluralize from 'pluralize';
  **/
 const convertIngredients = (ingredients, servingFactor = 1) => {
   return ingredients.reduce((acc, ing) => {
-    return {
-      ...acc,
-      [acc[ing]]: convertIngredient(ing),
-    };
+    acc[ing] = convertIngredient(ing, servingFactor);
+    return acc;
   }, {});
 };
 

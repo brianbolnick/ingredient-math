@@ -81,10 +81,12 @@ describe('convertIngredient', () => {
 
 describe('convertIngredients', () => {
   it('should convert a list of ingredients with the proper result', () => {
-    //const result = convertIngredients(['1 tsp sugar'], 2);
-    //expect(result.quantity).toEqual('2');
-    //expect(result.unit).toEqual('teaspoons');
-    //expect(result.ingredient).toEqual('sugar');
+    const ing = '1 tsp sugar';
+    const result = convertIngredients([ing], 2);
+
+    expect(result[ing].quantity).toEqual(2);
+    expect(result[ing].unit).toEqual('teaspoons');
+    expect(result[ing].ingredient).toEqual('sugar');
   });
 });
 
