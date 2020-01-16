@@ -62,6 +62,14 @@ describe('convertIngredient', () => {
     expect(result.ingredient).toEqual('of flour');
   });
 
+  it('handles empty units', () => {
+    const ing = '1 (8 ounce) container sour cream';
+    const result = convertIngredient(ing, 2);
+    expect(result.quantity).toEqual(2);
+    expect(result.unit).toEqual(null);
+    expect(result.ingredient).toEqual('(8 ounce) container sour cream');
+  });
+
   //TODO:
   it('properly converts teaspoons to tablespoons', () => {});
   it('properly converts tablespoons to cups', () => {});

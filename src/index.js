@@ -63,7 +63,7 @@ export const convertIngredient = (ingString, servingFactor) => {
 //};
 
 const maybePluralizeUnit = (quantity, unit) => {
-  if (!quantity) return unit;
+  if (!quantity || !unit) return unit;
   return pluralize(unit, parseInt(quantity));
 };
 
