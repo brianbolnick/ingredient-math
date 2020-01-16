@@ -26,7 +26,8 @@ const convertIngredients = (ingredients, servingFactor = 1) => {
 };
 
 export const convertIngredient = (ingString, servingFactor) => {
-  const parsedIng = getParsedIngredient(ingString);
+  //const parsedIng = getParsedIngredient(ingString);
+  const parsedIng = parse(ingString.toLowerCase());
   const { quantity, unit, ingredient } = parsedIng;
 
   const formattedQuantity = calculateQuantity(quantity, servingFactor);
@@ -39,24 +40,27 @@ export const convertIngredient = (ingString, servingFactor) => {
   };
 };
 
-export const getParsedIngredient = ingString => {
-  const parsedIng = parse(ingString.toLowerCase());
-  const { quantity, unit, ingredient } = parsedIng;
-  const parsedQuantity = parseInt(quantity);
+//export const getParsedIngredient = ingString => {
+//const parsedIng = parse(ingString.toLowerCase());
+//console.log('PARSED', parsedIng);
+//const { quantity, unit, ingredient } = parsedIng;
+//const parsedQuantity = parseInt(quantity);
 
-  var resultQuantity = parsedQuantity;
+//var resultQuantity = parsedQuantity;
 
-  if (!quantity) resultQuantity = null;
-  if (!parsedQuantity) {
-    resultQuantity = quantity;
-  }
+//if (!quantity) {
+////pinch of salt
+//resultQuantity = null;
+//} else if (!parsedQuantity) {
+//resultQuantity = quantity;
+//}
 
-  return {
-    quantity: resultQuantity,
-    unit,
-    ingredient,
-  };
-};
+//return {
+//quantity: resultQuantity,
+//unit,
+//ingredient,
+//};
+//};
 
 const maybePluralizeUnit = (quantity, unit) => {
   if (!quantity) return unit;
@@ -69,7 +73,7 @@ const maybePluralizeUnit = (quantity, unit) => {
  */
 const calculateQuantity = (quantity, serving) => {
   if (!quantity) return null;
-  const newQuantity = parseInt(quantity) * serving;
+  const newQuantity = parseFloat(quantity) * serving;
 
   const newQuantityType = getQuantityType(newQuantity);
   const quantityType = getQuantityType(quantity);
@@ -103,7 +107,7 @@ const convertImproperFraction = fraction => {
 };
 
 const createFraction = val => {
-  return new Fraction(parseInt(val)).simplify();
+  return new Fraction(parseFloat(val)).simplify();
 };
 
 /**
