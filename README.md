@@ -2,6 +2,8 @@
 
 This library is for converting recipe ingredients based on a serving size factor.
 
+* NOTE: This module is still in development
+
 ## Installation
 ```js
 yarn add ingredient-math
